@@ -1,0 +1,11 @@
+@import '~normalize.css';
+@import "variables";
+
+*, :after, :before {
+  box-sizing: border-box;
+}
+
+.body {
+  background: rgba(243,244,246, 1);
+  font-family: Arial ui-sans-serif sans-serif;
+}
