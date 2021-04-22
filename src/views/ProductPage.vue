@@ -1,6 +1,6 @@
 <template>
-  <AppLayout>
-    <h1>Каталог товаров</h1>
+  <AppLayout class="ProductPage">
+    <h1>Товар {{$route.params.productId}}</h1>
   </AppLayout>
 </template>
 
@@ -9,15 +9,7 @@ import { defineComponent } from 'vue';
 import AppLayout from '@/components/AppLayout.vue';
 
 export default defineComponent({
-  name: 'Home',
-  components: {
-    AppLayout,
-  },
+  name: 'ProductPage',
+  components: { AppLayout },
 });
 </script>
-
-<style lang="scss">
-body {
-  margin: 0;
-}
-</style>

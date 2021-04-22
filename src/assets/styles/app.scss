@@ -1,11 +1,14 @@
 @import '~normalize.css';
 @import "variables";
+@import "animations";
 
 *, :after, :before {
   box-sizing: border-box;
 }
 
-.body {
-  background: rgba(243,244,246, 1);
-  font-family: Arial ui-sans-serif sans-serif;
+body {
+  background: var(--bg-color-body);
+  color: var(--color-base);
+  font-family: Arial, sans-serif;
+  margin: 0;
 }

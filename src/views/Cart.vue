@@ -1,6 +1,6 @@
 <template>
   <AppLayout>
-    <h1>Каталог товаров</h1>
+    <h1>Корзина</h1>
   </AppLayout>
 </template>
 
@@ -15,9 +15,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style lang="scss">
-body {
-  margin: 0;
-}
-</style>
