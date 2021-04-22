@@ -1,4 +1,51 @@
-
 :root {
-  --tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06) !important;
+  /* Primary colors palette */
+  --black-rgb: 0, 0, 0;
+  --black: rgb(var(--black-rgb));
+  --white: #FFFFFF;
+  --red: #EF4444;
+  --green: #047857;
+  --blue: #2563EB;
+  --blue-dark: #1D4ED8;
+
+  /* Derivative colors */
+  --black-5: rgba(var(--black-rgb), 0.05);
+  --black-10: rgba(var(--black-rgb), 0.1);
+  --black-40: rgba(var(--black-rgb), 0.4);
+  --black-50: rgba(var(--black-rgb), 0.5);
+  --black-80: rgba(var(--black-rgb), 0.8);
+
+  --gray-10: #F3F4F6;
+  --gray-20: #E5E7EB;
+  --gray-30: #D1D5DB;
+  --gray-40: #9CA3AF;
+
+  /* Font colors */
+  --color-base: var(--black-80);
+  --color-mutted: var(--black-50);
+  --color-error: var(--red);
+  --color-success: var(--green);
+
+  /* Background colors */
+  --bg-color-body: var(--black-80);
+  --bg-color-product-card: var(--white);
+
+  /* Buttons styles */
+  --color-btn: var(--white);
+  --bg-color-btn-primary: var(--blue);
+  --bg-color-btn-secondary: var(--gray-20);
+  --bg-color-btn-error: var(--red);
+
+    // hover
+  --bg-color-btn-primary-hover: var(--blue-dark);
+  --bg-color-btn-secondary-hover: var(--gray-30);
+  --bg-color-btn-error-hover: var(--red);
+
+    // focus, active
+  --bg-color-btn-primary-focus: var(--blue-dark);
+  --bg-color-btn-secondary-focus: var(--gray-30);
+  --bg-color-btn-error-focus: var(--red);
+
+  /* Shadows */
+  --shadow: 0 1px 3px 0 var(--black-10), 0 1px 2px 0 var(--black-5);
 }
