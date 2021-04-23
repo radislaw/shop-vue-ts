@@ -1,7 +1,9 @@
 <template>
   <div class="AppHeader">
-    <RouterLink to="/">Каталог</RouterLink>
-    <HeaderCart/>
+    <div class="header-container">
+      <RouterLink to="/">Главная</RouterLink>
+      <HeaderCart />
+    </div>
   </div>
 </template>
 
@@ -18,13 +20,16 @@ export default defineComponent({
 <style lang="scss" scoped>
 .AppHeader {
   width: 100%;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.25rem;
+  padding: 1.25rem 0;
   box-shadow: var(--tw-shadow) !important;
-  background-color: #fff;
+  background-color: var(--white);
+
+  .header-container {
+    @extend %container;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 </style>

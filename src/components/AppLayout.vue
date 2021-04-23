@@ -28,10 +28,7 @@ export default {
   height: 100vh;
 }
 .main {
+  @extend %container;
   flex: 1;
-  width: 90%;
-  margin: 0 auto;
-  max-width: 1200px;
-  padding: 2rem 0;
 }
 </style>
