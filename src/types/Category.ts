@@ -1,4 +1,4 @@
-export type Category = {
+export interface Category {
   'id': string,
   'orderBy': number,
   'hdThumbnailUrl': string,
@@ -27,5 +27,4 @@ export type Category = {
     'en': string
   },
   'enabled': boolean
-
 }
