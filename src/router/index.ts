@@ -1,15 +1,15 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
-import Home from '../views/Home.vue';
+import Catalog from '../views/Catalog.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    name: 'Home',
-    component: Home,
+    name: 'Catalog',
+    component: Catalog,
   },
   {
     path: '/:productId',
-    name: 'Product',
+    name: 'ProductPage',
     component: () => import(/* webpackChunkName: "about" */ '../views/ProductPage.vue'),
   },
   {

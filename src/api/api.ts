@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { Categories } from '@/types/Categories';
-import { Product } from '@/types/Product';
+import { Products } from '@/types/Products';
 
 const path = require('path');
 
@@ -27,4 +27,4 @@ const fetchData = async (resource: string) => {
 
 export const getCategories: Promise<Categories> = fetchData('categories');
 
-export const getProducts: Promise<Product> = fetchData('products');
+export const getProducts: Promise<Products> = fetchData('products');

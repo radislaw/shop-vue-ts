@@ -1,3 +1,39 @@
-export type Product = {
-  'id': string,
+export interface Product {
+  categoryIds: number[]
+  combinations: []
+  createTimestamp: number
+  created: string
+  defaultCategoryId: number
+  defaultCombinationId: number
+  defaultDisplayedPrice: number
+  defaultDisplayedPriceFormatted: string
+  description: string
+  discountsAllowed: boolean
+  enabled: boolean
+  fixedShippingRate: number
+  fixedShippingRateOnly: boolean
+  googleItemCondition: string
+  hdThumbnailUrl: string
+  id: number
+  imageUrl: string
+  inStock: boolean
+  isGiftCard: boolean
+  isSampleProduct: boolean
+  isShippingRequired: boolean
+  name: string
+  nameYourPriceEnabled: boolean
+  originalImageUrl: string
+  price: number
+  priceInProductList: number
+  productClassId: number
+  seoDescription: string
+  seoTitle: string
+  showOnFrontpage: number
+  sku: string
+  smallThumbnailUrl: string
+  thumbnailUrl: string
+  unlimited: boolean
+  updateTimestamp: number
+  updated: string
+  url: string
 }
