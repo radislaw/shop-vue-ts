@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { Categories } from '@/types/Categories';
 import { Products } from '@/types/Products';
+import { Category } from '@/types/Category';
+import { Product } from '@/types/Product';
 
 const path = require('path');
 
@@ -11,12 +13,17 @@ const {
 
 const baseURL = 'https://app.ecwid.com/api/v3';
 
-const config = {
-  baseURL: path.join(baseURL, storeId),
-  params: { token },
-};
+type Options = {
+  category?: string,
+  categoryId?: string
+  productId?: string
+}
 
-const fetchData = async (resource: string) => {
+const fetchData = async (resource: string, params?: Options) => {
+  const config = {
+    baseURL: path.join(baseURL, storeId),
+    params: { token, ...params },
+  };
   try {
     const response = await axios.get(resource, config);
     return response.data;
@@ -25,6 +32,10 @@ const fetchData = async (resource: string) => {
   }
 };
 
-export const getCategories: Promise<Categories> = fetchData('categories');
+export const getCategories = (): Promise<Categories> => fetchData('categories');
 
-export const getProducts: Promise<Products> = fetchData('products');
+export const getCategory = (categoryId: string): Promise<Category> => fetchData('categories', { categoryId });
+
+export const getProducts = (category: string): Promise<Products> => fetchData('products', { category });
+
+export const getProduct = (productId: string): Promise<Product> => fetchData('products', { productId });
