@@ -35,6 +35,7 @@ export default defineComponent({
 .AppButton {
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 0.5rem 0.75rem;
   color: var(--color-btn);
   background-color: var(--bg-color-btn-primary);
