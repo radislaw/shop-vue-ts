@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
-import Catalog from '../views/Catalog.vue';
+import Catalog from '@/views/Catalog.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -8,7 +8,12 @@ const routes: Array<RouteRecordRaw> = [
     component: Catalog,
   },
   {
-    path: '/:productId',
+    path: '/catalog/:categoryId',
+    name: 'catalog',
+    component: () => import(/* webpackChunkName: "about" */ '../views/ProductsPage.vue'),
+  },
+  {
+    path: '/product/:productId',
     name: 'ProductPage',
     component: () => import(/* webpackChunkName: "about" */ '../views/ProductPage.vue'),
   },

@@ -3,7 +3,7 @@
     <h1>Каталог товаров</h1>
     <div class="categories">
       <CategoryCard
-        v-for="category in categories.items"
+        v-for="category in categories"
         :key="category.id"
         :category="category"
       />
@@ -11,7 +11,7 @@
     <h2>Популярные товары</h2>
     <div class="products">
       <ProductCard
-        v-for="product in products.items"
+        v-for="product in products"
         :key="product.id"
         :product="product"
       />
@@ -21,10 +21,9 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import { mapActions, mapState } from 'vuex';
 import AppLayout from '@/components/AppLayout.vue';
 import CategoryCard from '@/components/CategoryCard.vue';
-import { getCategories, getProducts } from '@/api/api';
-import { Categories } from '@/types/Categories';
 import { Products } from '@/types/Products';
 import ProductCard from '@/components/ProductCard.vue';
 
@@ -35,28 +34,24 @@ export default defineComponent({
     CategoryCard,
     AppLayout,
   },
-  data() {
-    return {
-      categories: {} as Categories,
-      products: {} as Products,
-    };
+  computed: {
+    ...mapState(['categories', 'products']),
+  },
+  methods: {
+    ...mapActions(['fetchCategories', 'fetchProducts']),
   },
   mounted() {
-    getCategories.then((data) => {
-      this.categories = data;
-    });
-    getProducts.then((data) => {
-      this.products = data;
-    });
+    this.fetchCategories();
+    this.fetchProducts('0');
   },
 });
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .categories {
   display: grid;
   grid-template-columns: repeat(2, 300px);
-  grid-auto-rows: 300px;
+  //grid-auto-rows: 300px;
   grid-gap: 1rem;
   justify-content: center;
   margin-bottom: 4rem;
@@ -65,7 +60,7 @@ export default defineComponent({
 .products {
   display: grid;
   grid-template-columns: repeat(4, 300px);
-  grid-auto-rows: 300px;
+  //grid-auto-rows: 300px;
   grid-gap: 2rem 1rem;
   justify-content: center;
   margin-bottom: 4rem;

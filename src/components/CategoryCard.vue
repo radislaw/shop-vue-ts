@@ -1,10 +1,10 @@
 <template>
-  <div class="CategoryCard">
-    <RouterLink :to="{name: 'ProductPage', params: {productId: category.id}}">
+  <figure class="CategoryCard">
+    <RouterLink :to="{name: 'catalog', params: {categoryId: category.id}}">
       <img :src="category.thumbnailUrl" :alt="category.name">
       <figcaption class="caption">{{ category.name }}</figcaption>
     </RouterLink>
-  </div>
+  </figure>
 </template>
 
 <script lang="ts">
@@ -21,12 +21,13 @@ export default defineComponent({
 });
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .CategoryCard {
   box-shadow: var(--shadow);
   border-radius: 0.25em;
   position: relative;
   overflow: hidden;
+  background-color: var(--bg-color-card);
 
   .caption {
     position: absolute;
