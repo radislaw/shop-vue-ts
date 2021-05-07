@@ -1,9 +1,9 @@
 <template>
   <AppLayout class="ProductPage">
-    <h1>{{ categoryTitle }}</h1>
+    <h1>{{ category.name }}</h1>
     <div class="products">
       <ProductCard
-        v-for="product in products.items"
+        v-for="product in products"
         :key="product.id"
         :product="product"
       />
@@ -13,30 +13,35 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { Products } from '@/types/Products';
-import { getProducts } from '@/api/api';
+import { Category } from '@/types/Category';
+import { Product } from '@/types/Product';
+import { getCategory, getProducts } from '@/api/api';
 import AppLayout from '@/components/AppLayout.vue';
 import ProductCard from '@/components/ProductCard.vue';
-import { mapState } from 'vuex';
 
 export default defineComponent({
   name: 'ProductsPage',
   components: { ProductCard, AppLayout },
   data() {
     return {
-      products: {} as Products,
+      products: [] as Product[],
+      category: {} as Category,
     };
   },
   computed: {
-    ...mapState(['categoryTitle']),
     categoryId(): string {
       return this.$route.params.categoryId.toString();
     },
   },
   mounted() {
-    getProducts(this.categoryId).then((data) => {
-      this.products = data;
-    });
+    getProducts(this.categoryId)
+      .then(({ items }) => {
+        this.products = items;
+        getCategory(this.categoryId)
+          .then((category) => {
+            this.category = category;
+          });
+      });
   },
 });
 </script>

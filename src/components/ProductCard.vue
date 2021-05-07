@@ -7,7 +7,14 @@
       </RouterLink>
     </figure>
     <div class="price">{{ product.defaultDisplayedPriceFormatted }}</div>
-    <AppButton :loading="isLoading" @click="addToCart" class="button">Купить</AppButton>
+    <AppButton :loading="isLoading" @click="addToCart" class="button">
+      <template v-if="false">
+        Купить
+      </template>
+      <template v-else>
+        Корзина
+      </template>
+    </AppButton>
   </div>
 </template>
 

@@ -34,8 +34,8 @@ const fetchData = async (resource: string, params?: Options) => {
 
 export const getCategories = (): Promise<Categories> => fetchData('categories');
 
-export const getCategory = (categoryId: string): Promise<Category> => fetchData('categories', { categoryId });
+export const getCategory = (categoryId: string): Promise<Category> => fetchData(`categories/${categoryId}`);
 
-export const getProducts = (category: string): Promise<Products> => fetchData('products', { category });
+export const getProducts = (category = '0'): Promise<Products> => fetchData('products', { category });
 
 export const getProduct = (productId: string): Promise<Product> => fetchData('products', { productId });

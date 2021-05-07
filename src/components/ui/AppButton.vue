@@ -1,12 +1,12 @@
 <template>
-  <button class="AppButton" :class="{'-inactive': loading}">
+  <component :is="tag" to="/" class="AppButton" :class="{'-inactive': loading}">
     <LoadingIcon
       v-if="loading"
       class="icon"
       :class="{'-loading': loading}"
     />
     <slot />
-  </button>
+  </component>
 </template>
 
 <script lang="ts">
@@ -17,6 +17,10 @@ export default defineComponent({
   name: 'AppButton',
   components: { LoadingIcon },
   props: {
+    tag: {
+      type: String,
+      default: 'RouterLink',
+    },
     loading: Boolean,
     type: {
       type: String,

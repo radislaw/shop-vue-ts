@@ -21,11 +21,12 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { mapActions, mapState } from 'vuex';
 import AppLayout from '@/components/AppLayout.vue';
 import CategoryCard from '@/components/CategoryCard.vue';
-import { Products } from '@/types/Products';
 import ProductCard from '@/components/ProductCard.vue';
+import { Product } from '@/types/Product';
+import { Category } from '@/types/Category';
+import { getCategories, getProducts } from '@/api/api';
 
 export default defineComponent({
   name: 'Home',
@@ -34,15 +35,21 @@ export default defineComponent({
     CategoryCard,
     AppLayout,
   },
-  computed: {
-    ...mapState(['categories', 'products']),
-  },
-  methods: {
-    ...mapActions(['fetchCategories', 'fetchProducts']),
+  data() {
+    return {
+      products: [] as Product[],
+      categories: [] as Category[],
+    };
   },
   mounted() {
-    this.fetchCategories();
-    this.fetchProducts('0');
+    getCategories()
+      .then(({ items }) => {
+        this.categories = items;
+      });
+    getProducts()
+      .then(({ items }) => {
+        this.products = items;
+      });
   },
 });
 </script>
@@ -51,7 +58,6 @@ export default defineComponent({
 .categories {
   display: grid;
   grid-template-columns: repeat(2, 300px);
-  //grid-auto-rows: 300px;
   grid-gap: 1rem;
   justify-content: center;
   margin-bottom: 4rem;
@@ -60,7 +66,6 @@ export default defineComponent({
 .products {
   display: grid;
   grid-template-columns: repeat(4, 300px);
-  //grid-auto-rows: 300px;
   grid-gap: 2rem 1rem;
   justify-content: center;
   margin-bottom: 4rem;
