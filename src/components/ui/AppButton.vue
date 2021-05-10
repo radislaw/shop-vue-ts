@@ -20,6 +20,10 @@ export default defineComponent({
     tag: {
       type: String,
       default: 'RouterLink',
+      validator(value: string) {
+        const tags = ['a', 'button', 'RouterLink'];
+        return tags.includes(value);
+      },
     },
     loading: Boolean,
     type: {
@@ -49,6 +53,7 @@ export default defineComponent({
   -webkit-appearance: button;
   cursor: pointer;
   user-select: none;
+  width: fit-content;
 
   &:hover {
     background-color: var(--bg-color-btn-primary-hover);

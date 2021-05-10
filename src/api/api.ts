@@ -38,4 +38,4 @@ export const getCategory = (categoryId: string): Promise<Category> => fetchData(
 
 export const getProducts = (category = '0'): Promise<Products> => fetchData('products', { category });
 
-export const getProduct = (productId: string): Promise<Product> => fetchData('products', { productId });
+export const getProduct = (productId: string): Promise<Product> => fetchData(`products/${productId}`);

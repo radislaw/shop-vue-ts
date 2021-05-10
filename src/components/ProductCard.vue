@@ -62,7 +62,7 @@ export default defineComponent({
   }
 
   .caption {
-    color: #333;
+    color: var(--black-80);
     text-decoration: none;
     margin-bottom: 0.5rem;
     overflow: hidden;
@@ -76,7 +76,7 @@ export default defineComponent({
 
   &:hover {
     .caption {
-      color: #145485;
+      color: var(--blue-dark);
     }
 
     .image {
